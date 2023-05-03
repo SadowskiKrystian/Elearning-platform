@@ -11,9 +11,9 @@
     <body>
         <div class="container">
             <nav th:replace="~{layout/layout :: navbar}"></nav>
-            <div id="articule">
-                Błędna strona
-            </div>
+            <main class="main_grid">
+                <h1>Welcome, [[${email}]]</h1>
+            </main>
             <footer th:replace="~{layout/layout :: footer}"></footer>
         </div>
     </body>

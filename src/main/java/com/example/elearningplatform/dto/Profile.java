@@ -10,17 +10,21 @@ public class Profile {
     private Long id;
     @Column(name = "first_name")
     private String firstName;
-    @Column(name = "second_name")
+    @Column(name = "sur_name")
     private String secondName;
-    private String address;
-
+    @Column(name = "city")
+    private String city;
+    @Column(name = "mobile_number")
+    private Integer mobileNumber;
+    
     public Profile() {
     }
 
-    public Profile(String firstName, String secondName, String address) {
+    public Profile(String firstName, String secondName, String city, Integer mobileNumber) {
         this.firstName = firstName;
         this.secondName = secondName;
-        this.address = address;
+        this.city = city;
+        this.mobileNumber = mobileNumber;
     }
 
     public Long getId() {
@@ -47,12 +51,20 @@ public class Profile {
         this.secondName = secondName;
     }
 
-    public String getAddress() {
-        return address;
+    public String getCity() {
+        return city;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public Integer getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public void setMobileNumber(Integer mobileNumber){
+        this.mobileNumber = mobileNumber;
     }
 
     @Override
@@ -61,7 +73,8 @@ public class Profile {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", secondName='" + secondName + '\'' +
-                ", address='" + address + '\'' +
+                ", address='" + city + '\'' +
+                ", mobileNumber='" + mobileNumber + '\'' +
                 '}';
     }
 }

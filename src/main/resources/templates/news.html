@@ -1,32 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elearning Platform</title>
-    <link rel="stylesheet" href="/css/main.css" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script th:src="@{/js/newss.js}"></script>
-</head>
-<body>
-    <div id="contener">
-        <div id="logo">
-            <h1>Elearning Platform</h1>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Elearning Platform</title>
+        <script type="text/javascript" th:src="@{/js/addFonts.js}"></script>
+        <link th:href="@{/css/main.css}" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script th:src="@{/js/fetchNews.js}"></script>
+    </head>
+    <body>
+        <div class="container">
+            <nav th:replace="~{layout/layout :: navbar}"></nav>
+            <main class="main_grid">
+                <div id="informations_wrapper" class="informations_wrapper"></div>
+            </main>
+            <footer th:replace="~{layout/layout :: footer}"></footer>
         </div>
-        <div id="nav">
-            <ol>
-                <li><a href="/index">Home</a></li>
-                <li><a href="/news">News</a></li>
-                <li><a href="/login">Login</a></li>
-            </ol>
-        </div>
-        <div id="articule">
-        </div>
-        <div id="footer">
-            Krystian Sadowski. 2023 Copy write
-        </div>
-    </div>
-
-</body>
+    </body>
 </html>

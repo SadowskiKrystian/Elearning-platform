@@ -1,8 +1,8 @@
 $(document).ready(function () {
-    findNewses();
+    fetchNews();
 });
 
-function findNewses(){
+function fetchNews(){
     $.ajax({
         url: "/api/get-news",
         type: "get",
@@ -22,13 +22,13 @@ function findResults(newses){
     });
 }
 function fillRow(news){
-    $('#articule').append(
-        '<div id="information">' +
-            '<div id="title">' + news.title +
+    $('#informations_wrapper').append(
+        '<div class="information">' +
+            '<div class="information_title">' + news.title +
             '</div>' +
-            '<div id="content">' + news.content +
+            '<div class="information_content">' + news.content +
             '</div>' +
-            '<div id="date">' + news.createDate +
+            '<div class="information_date">' + news.createDate +
             '</div>' +
         '</div>'
     );

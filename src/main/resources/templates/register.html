@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+    <html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Elearning Platform</title>
+        <script type="text/javascript" th:src="@{/js/addFonts.js}"></script>
+        <link th:href="@{/css/main.css}" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="container">
+            <nav th:replace="~{layout/layout :: navbar}"></nav>
+            <main class="main_grid">
+                <div class="form_inputs">
+                    <form class="form" name="register" th:action="@{/register}" method="post">
+                        <div class="form_row">
+                            <div class="form_left">
+                                <div class="form_left_inputs">
+                                    <div class="single_input">
+                                        <label for="password">Email *</label>
+                                        <input required type="text" id="email" name="email"/>
+                                    </div>
+                                    <div class="single_input">
+                                        <label for="password">Password *</label>
+                                        <input required type="password" id="password" name="password"/>
+                                    </div>
+                                </div>
+                                <div class="form_left_submit">
+                                    <button class="form_action" type="submit">Register</button>
+                                    <p class="form_left_label">* fields are required.</p>
+                                </div>
+                            </div>
+                            <div class="form_right">
+                                <div class="single_input">
+                                    <label for="first_name">First name *</label>
+                                    <input required type="text" id="first_name" name="first_name"/>
+                                </div>
+                                <div class="single_input">
+                                    <label for="sur_name">Surname *</label>
+                                    <input required type="text" id="sur_name" name="sur_name"/>
+                                </div>
+                                <div class="single_input">
+                                    <label for="city">City</label>
+                                    <input type="text" id="city" name="city"/>
+                                </div>
+                                <div class="single_input">
+                                    <label for="mobile_number">Phone number</label>
+                                    <input type="tel" id="mobile_number" name="mobile_number"/>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </main>
+            <footer th:replace="~{layout/layout :: footer}"></footer>
+        </div>
+    </body>
+</html>
