@@ -11,7 +11,7 @@ public class Login {
     private String email;
     private String password;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     private Profile profile;
     private String role;
     

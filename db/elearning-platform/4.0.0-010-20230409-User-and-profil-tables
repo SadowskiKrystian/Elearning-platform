@@ -1,10 +1,8 @@
-create database elearning_platform;
-use elearning_platform;
 create table user(
 id int auto_increment primary key,
-email varchar(20) not null,
-password varchar(20) not null,
-role varchar(8) not null,
+email varchar(100) not null,
+password varchar(100) not null,
+role varchar(20) not null,
 profile_id int,
 foreign key (profile_id) references profile(id)
 )
@@ -14,9 +12,9 @@ foreign key (profile_id) references profile(id)
 
 create table profile(
 id int auto_increment primary key,
-first_name varchar(20) not null,
-surname varchar(30) not null,
-age int,
+first_name varchar(50),
+surname varchar(50),
+city varchar(50),
 mobile_number varchar(30)
 )
 	COLLATE='utf8_general_ci'

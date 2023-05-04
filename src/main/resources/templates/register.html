@@ -7,13 +7,15 @@
         <title>Elearning Platform</title>
         <script type="text/javascript" th:src="@{/js/addFonts.js}"></script>
         <link th:href="@{/css/main.css}" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script th:src="@{/js/register.js}"></script>
     </head>
     <body>
         <div class="container">
             <nav th:replace="~{layout/layout :: navbar}"></nav>
             <main class="main_grid">
                 <div class="form_inputs">
-                    <form class="form" name="register" th:action="@{/register}" method="post">
+                    <form id="register" class="form" name="register">
                         <div class="form_row">
                             <div class="form_left">
                                 <div class="form_left_inputs">
@@ -27,7 +29,7 @@
                                     </div>
                                 </div>
                                 <div class="form_left_submit">
-                                    <button class="form_action" type="submit">Register</button>
+                                    <button class="form_action" type="submit" onclick="createLogin()">Register</button>
                                     <p class="form_left_label">* fields are required.</p>
                                 </div>
                             </div>

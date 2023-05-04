@@ -8,7 +8,7 @@ import com.example.elearningplatform.dto.Login;
 
 import jakarta.servlet.http.HttpSession;
 
-@Controller
+
 public class ApplicationStudentController {
     @GetMapping({"/student/index"})
     public String getLoggedIndex(Model model, HttpSession session){
@@ -29,4 +29,5 @@ public class ApplicationStudentController {
             return "redirect:/login";
         }
     }
+
 }

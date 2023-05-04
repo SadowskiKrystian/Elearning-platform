@@ -42,18 +42,7 @@ public class ApplicationController {
         }
     }
 
-    @PostMapping("register")
-    public String register(@RequestParam String email, @RequestParam String password, @RequestParam String first_name, @RequestParam String sur_name, @RequestParam String city, @RequestParam Integer mobile_number) {
-        try {
-            Login user = loginService.create(email, password, first_name, sur_name, city, mobile_number);
-            if (user != null) {
-                return "redirect:/login";
-            }
-            return "redirect:/register";
-        } catch (WrongLogin e) {
-            return "redirect:/register";
-        }
-    }
+
 
     @GetMapping({"/waiting-room"})
     public String getLoggedPage(Model model, HttpSession session){
@@ -67,7 +56,7 @@ public class ApplicationController {
                 return "redirect:/admin/index";
             } else {
                 return "waiting-room";
-            } 
+            }
         } else {
             return "redirect:/login";
         }

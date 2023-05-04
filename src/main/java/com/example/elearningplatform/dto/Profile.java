@@ -10,7 +10,7 @@ public class Profile {
     private Long id;
     @Column(name = "first_name")
     private String firstName;
-    @Column(name = "sur_name")
+    @Column(name = "surname")
     private String secondName;
     @Column(name = "city")
     private String city;
