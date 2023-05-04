@@ -21,14 +21,21 @@ function findResults(newses){
         fillRow(news);
     });
 }
-function fillRow(news){
+function fillRow(news) {
+    let date = new Intl.DateTimeFormat('en-US', { weekday: 'short', month: 'long', year: 'numeric' }).format(new Date(news.createDate));
     $('#informations_wrapper').append(
-        '<div class="information">' +
-            '<div class="information_title">' + news.title +
-            '</div>' +
-            '<div class="information_content">' + news.content +
-            '</div>' +
-            '<div class="information_date">' + news.createDate +
+        '<div class="information_basis">' +
+            '<div class="information">'+
+                '<div class="information_title">' +
+                '<p>Created: </p>'+
+                `<h3>${news.title}</h3>` +
+                '</div>' +
+                '<div class="information_date">' + 
+                `<span>${date}</span>` +
+                '</div>' +
+                '<div class="information_content">' + 
+                news.content +
+                '</div>' +
             '</div>' +
         '</div>'
     );
