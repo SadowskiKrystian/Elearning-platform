@@ -9,17 +9,17 @@ import com.example.elearningplatform.dto.Login;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
-public class ApplicationAdminController {
-    @GetMapping({"/admin/index"})
+public class ApplicationStudentController {
+    @GetMapping({"/student/index"})
     public String getLoggedIndex(Model model, HttpSession session){
         Login user = (Login) session.getAttribute("user");
         if (user != null) {
             model.addAttribute("email", user.getEmail());
             model.addAttribute("role", user.getRole());
             if (user.getRole() == "STUDENT") {
-                return "redirect:/student/index";
+                return "student/index";
             } else if (user.getRole() == "ADMIN") {
-                return "admin/index";
+                return "redirect:/admin/index";
             } else if (user.getRole() == "USER") {
                 return "redirect:/waiting-room";
             } else {

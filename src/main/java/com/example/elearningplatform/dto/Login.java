@@ -3,7 +3,7 @@ package com.example.elearningplatform.dto;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "login")
+@Table(name = "user")
 public class Login {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -11,13 +11,11 @@ public class Login {
     private String email;
     private String password;
 
-
     @OneToOne(fetch = FetchType.LAZY)
     private Profile profile;
     private String role;
     
-    public Login() {
-    }
+    public Login() {}
 
     public Login(String email, String password, Profile profile, String role) {
         this.email = email;
