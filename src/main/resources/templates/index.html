@@ -12,7 +12,13 @@
         <div class="container">
             <nav th:replace="~{layout/layout :: navbar}"></nav>
             <main class="main_grid">
-                <div class="article"></div>
+                <div class="article">
+                    <span th:text="${user}"></span>;
+                    <span ></span>;
+                    <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+                        <input hidden type="submit" value="Sign out">
+                    </form>
+                </div>
             </main>
             <footer th:replace="~{layout/layout :: footer}"></footer>
         </div>
