@@ -9,6 +9,7 @@ import com.example.elearningplatform.dto.News;
 import com.example.elearningplatform.dto.Profile;
 import com.example.elearningplatform.service.LoginService;
 import com.example.elearningplatform.service.NewsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -32,7 +33,10 @@ public class ElearningPlatformEndPoint {
     }
     @PostMapping("/quest/add-user")
     public void addUser(@RequestBody LoginGetRequest loginGetRequest){
-        loginService.create(new Login(loginGetRequest.getEmail(), loginGetRequest.getPassword(), new Profile(loginGetRequest.getFirstName(), loginGetRequest.getSurname(), loginGetRequest.getCity(), loginGetRequest.getPhoneNumber()), UserRole.QUEST.getCodeWithRole()));
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        String rawPassword = loginGetRequest.getPassword();
+        String encodedPasword = encoder.encode(rawPassword);
+        loginService.create(new Login(loginGetRequest.getEmail(), encodedPasword, new Profile(loginGetRequest.getFirstName(), loginGetRequest.getSurname(), loginGetRequest.getCity(), loginGetRequest.getPhoneNumber()), UserRole.QUEST.getCodeWithRole()));
     }
 
     private List<NewsGetResponse> newsesToResponse(List<News> newses) {
