@@ -20,4 +20,14 @@ public class GlobalControllerAdvice {
         );
     }
 
+
+    @ModelAttribute("adminlinks")
+    public List<Map<String, String>> addAdminLinksToModel() {
+        return Arrays.asList(
+                Map.of("name", "User", "href", "/admin/api/users"),
+                Map.of("name", "News", "href", "/admin/api/news"),
+                Map.of("name", "Notification", "href", "/admin/api/notification"),
+                Map.of("name", "Logout", "href", "/admin/api/logout")
+        );
+    }
 }
