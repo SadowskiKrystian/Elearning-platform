@@ -11,11 +11,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoginService {
     private LoginRepository loginRepository;
-    private ProfileRepository profileRepository;
 
-    public LoginService(LoginRepository loginRepository, ProfileRepository profileRepository) {
+    public LoginService(LoginRepository loginRepository) {
         this.loginRepository = loginRepository;
-        this.profileRepository = profileRepository;
     }
     public List<Login> findAll(){
         return loginRepository.findAll();
@@ -31,16 +29,15 @@ public class LoginService {
         return null;
     }
 
-    public void create(Login login){
-        loginRepository.save(login);
-    }
-
-    public Login create(String email, String password, String firstName, String secondName, String city, Integer mobileNumber) {
-        Profile profile = new Profile(firstName, secondName, city, mobileNumber);
-        profileRepository.save(profile);
-        Login login = new Login(email, password, profile, "USER");
-        loginRepository.save(login);
-        return login;
+    public Login create(Login login) {
+        List<Login> users = findAll();
+        for (Login user : users) {
+            if (user.getEmail().equals(login.getEmail())){
+                return null;
+            }
+        }
+        Login saved = loginRepository.save(login);
+        return saved;
     }
 
     public Login validateLogin(String email, String password) {

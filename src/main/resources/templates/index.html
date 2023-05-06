@@ -1,26 +1,32 @@
 <!DOCTYPE html>
-    <html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Elearning Platform</title>
-        <script type="text/javascript" th:src="@{/js/addFonts.js}"></script>
-        <link th:href="@{/css/main.css}" rel="stylesheet" />
-    </head>
-    <body>
-        <div class="container">
-            <nav th:replace="~{layout/layout :: navbar}"></nav>
-            <main class="main_grid">
-                <div class="article">
-                    <span th:text="${user}"></span>;
-                    <span ></span>;
-                    <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
-                        <input hidden type="submit" value="Sign out">
-                    </form>
-                </div>
-            </main>
-            <footer th:replace="~{layout/layout :: footer}"></footer>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elearning Platform</title>
+    <script type="text/javascript" th:src="@{/js/addFonts.js}"></script>
+    <link th:href="@{/css/main.css}" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="main_grid">
+      <nav th:replace="~{layout/layout :: navbar}"></nav>
+      <main class="main_grid_wrapper">
+        <div class="article">
+          <button onclick="()=>createToast('e')">xx</button>
+          <span th:text="${user}"></span>
+          <div th:if="${user.principal != 'anonymousUser'}">
+            <form name="logoutForm" th:action="@{/logout}" method="post">
+              <input type="submit" value="Sign out" />
+            </form>
+          </div>
         </div>
-    </body>
+      </main>
+      <footer th:replace="~{layout/layout :: footer}"></footer>
+    </div>
+  </body>
 </html>

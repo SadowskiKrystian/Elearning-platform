@@ -9,11 +9,16 @@ import com.example.elearningplatform.dto.News;
 import com.example.elearningplatform.dto.Profile;
 import com.example.elearningplatform.service.LoginService;
 import com.example.elearningplatform.service.NewsService;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
@@ -32,11 +37,28 @@ public class ElearningPlatformEndPoint {
         return new NewsGetListResponse(newsesToResponse(newses));
     }
     @PostMapping("/quest/add-user")
-    public void addUser(@RequestBody LoginGetRequest loginGetRequest){
+    public ResponseEntity<Object> addUser(@RequestBody LoginGetRequest loginGetRequest){
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String rawPassword = loginGetRequest.getPassword();
-        String encodedPasword = encoder.encode(rawPassword);
-        loginService.create(new Login(loginGetRequest.getEmail(), encodedPasword, new Profile(loginGetRequest.getFirstName(), loginGetRequest.getSurname(), loginGetRequest.getCity(), loginGetRequest.getPhoneNumber()), UserRole.QUEST.getCodeWithRole()));
+        String encodedPassword = encoder.encode(rawPassword);
+        Login response = loginService.create(
+            new Login(loginGetRequest.getEmail(),
+            encodedPassword,
+            new Profile(loginGetRequest.getFirstName(),
+            loginGetRequest.getSurname(),
+            loginGetRequest.getCity(),
+            loginGetRequest.getPhoneNumber()),
+            UserRole.QUEST.getCodeWithRole())
+        );
+        if (response == null) {
+            Map<String, String> errorResponse = new HashMap<>();
+            errorResponse.put("message", "User already exists");
+            return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+        } else {
+            Map<String, String> successResponse = new HashMap<>();
+            successResponse.put("message", "User created");
+            return new ResponseEntity<>(successResponse, HttpStatus.OK);
+        }
     }
 
     private List<NewsGetResponse> newsesToResponse(List<News> newses) {

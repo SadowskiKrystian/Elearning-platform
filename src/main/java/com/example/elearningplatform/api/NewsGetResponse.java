@@ -1,7 +1,6 @@
 package com.example.elearningplatform.api;
 
 import com.example.elearningplatform.dto.News;
-import org.springframework.cglib.core.Local;
 
 import java.time.LocalDate;
 
