@@ -28,16 +28,16 @@ function fillRow(news) {
     year: "numeric",
   }).format(new Date(news.createDate));
   $("#informations_wrapper").append(
-    '<div class="flex w-full basis-1/3">' +
-      '<div class="relative flex flex-col w-[80%] my-[24px] mx-auto bg-[#eebb12] rounded-[0.8rem] p-[1.2rem] shadow-xl">' +
-      '<div class="flex justify-between items-center">' +
-      "<p class='select-none text-[1.2rem] font-[700] text-[#13131C]'>Created: </p>" +
-      `<h3 class='select-none text-[1.6rem] font-[700] text-[#13131C]'>${news.title}</h3>` +
+    '<div class="information_basis">' +
+      '<div class="information">' +
+      '<div class="information_title">' +
+      `<h3>${news.title}</h3>` +
       "</div>" +
       '<div class="information_date">' +
-      `<span class="select-none text-[1.2rem] font-[700] text-[#13131C]">${date}</span>` +
+      "<p>Created:&nbsp;</p>" +
+      `<span>${date}</span>` +
       "</div>" +
-      '<div class="mt-[0.8rem] text-[1.4rem]">' +
+      '<div class="information_content">' +
       news.content +
       "</div>" +
       "</div>" +

@@ -1,7 +1,20 @@
+@import url("./shared.css");
+
+@import url("./layout/navbar.css");
+@import url("./layout/footer.css");
+
+@import url("./forms/shared_for_forms.css");
+
+@import url("./animations.css");
+@import url("./toasts.css");
+
+@import url("./pages/news.css");
+
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 html {
   font-family: "Fira Sans", sans-serif;
   box-sizing: border-box;
-  font-size: 62.5%;
   scroll-behavior: smooth;
 }
 
@@ -12,34 +25,10 @@ body {
   overflow: hidden;
 }
 
-@keyframes showup {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.showup {
-  animation-name: showup;
-  animation-duration: 700ms;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-}
-
-@keyframes hide {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-.hide {
-  animation-name: hide;
-  animation-duration: 700ms;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
+:root {
+  --main-black: #13131c;
+  --main-white: #f1f1f1;
+  --gray-scale-white: #fff;
+  --main-0: #1aff1a;
+  --main-1: #13aa52;
 }
