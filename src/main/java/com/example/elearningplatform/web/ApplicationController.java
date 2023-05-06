@@ -1,8 +1,5 @@
 package com.example.elearningplatform.web;
 
-import com.example.elearningplatform.auth.UserRole;
-import com.example.elearningplatform.dto.Login;
-import com.example.elearningplatform.exceptions.WrongLogin;
 import com.example.elearningplatform.service.LoginService;
 
 import jakarta.servlet.http.HttpServletRequest;

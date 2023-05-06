@@ -31,7 +31,7 @@
           </li>
         </ul>
         <a
-          th:if="${user.principal != 'anonymousUser'}"
+          th:if="${role != NULL}"
           class="select-none relative navbar_links_hover ml-[3.2rem]"
           href="/logout"
           >LOGOUT</a
