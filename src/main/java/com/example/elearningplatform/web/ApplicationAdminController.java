@@ -18,6 +18,7 @@ public class ApplicationAdminController {
     @GetMapping({"/logging"})
     public String getLoggedIndex(Model model, HttpSession session){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        model.addAttribute("user", auth);
         model.addAttribute("users", auth.getPrincipal());
         if(auth != null){
             for (GrantedAuthority a : auth.getAuthorities()) {
