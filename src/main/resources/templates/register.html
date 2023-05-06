@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Elearning Platform</title>
-    <script type="text/javascript" th:src="@{/js/addFonts.js}"></script>
     <link th:href="@{/css/main.css}" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script th:src="@{/js/register.js}"></script>
@@ -14,39 +13,23 @@
     <div class="main_grid">
       <nav th:replace="~{layout/layout :: navbar}"></nav>
       <main class="main_grid_wrapper">
-        <div
-          class="w-full flex flex-col justify-center items-center gap-[0.4rem]"
-        >
+        <div class="form_inputs">
           <form
-            id="register"
-            class="flex flex-col justify-center items-center gap-[0.8rem] p-[3.2rem] bg-[#F1F1F1] rounded-[0.8rem] shadow-xl"
+            class="form"
             name="register"
+            th:action="@{/register}"
+            method="post"
           >
-            <div class="flex gap-[3.2rem]">
-              <div class="pt-[1.6rem] flex justify-between flex-col">
-                <div class="w-full flex flex-col gap-[0.8rem]">
-                  <div class="flex flex-col">
-                    <label
-                      class="text-[1.2rem] font-[600] mb-[0.4rem] select-none"
-                      for="password"
-                      >Email *</label
-                    >
-                    <input
-                      class="p-[0.8rem] rounded-[0.4rem] border-[1px] border-solid border-[#13131C]"
-                      required
-                      type="text"
-                      id="email"
-                      name="email"
-                    />
+            <div class="form_row">
+              <div class="form_left">
+                <div class="form_left_inputs">
+                  <div class="single_input">
+                    <label for="password">Email *</label>
+                    <input required type="text" id="email" name="email" />
                   </div>
-                  <div class="flex flex-col">
-                    <label
-                      class="text-[1.2rem] font-[600] mb-[0.4rem] select-none"
-                      for="password"
-                      >Password *</label
-                    >
+                  <div class="single_input">
+                    <label for="password">Password *</label>
                     <input
-                      class="p-[0.8rem] rounded-[0.4rem] border-[1px] border-solid border-[#13131C]"
                       required
                       type="password"
                       id="password"
@@ -54,71 +37,32 @@
                     />
                   </div>
                 </div>
-                <div class="relative flex w-full">
-                  <button class="main_button" type="submit">Register</button>
-                  <p
-                    class="absolute top-[100%] left-0 text-[0.9rem] tracking-[1px] font-[700] select-none text-[#13131C]"
-                  >
-                    * fields are required.
-                  </p>
+                <div class="form_left_submit">
+                  <button class="form_action" type="submit">Register</button>
+                  <p class="form_left_label">* fields are required.</p>
                 </div>
               </div>
-              <div
-                class="flex flex-col gap-[0.8rem] p-[1.6rem] bg-[#F1F1F1] rounded-[0.8rem] shadow-2xl"
-              >
-                <div class="flex flex-col">
-                  <label
-                    class="text-[1.2rem] font-[600] mb-[0.4rem] select-none"
-                    for="first_name"
-                    >First name *</label
-                  >
+              <div class="form_right">
+                <div class="single_input">
+                  <label for="first_name">First name *</label>
                   <input
-                    class="p-[0.8rem] rounded-[0.4rem] border-[1px] border-solid border-[#13131C]"
                     required
                     type="text"
                     id="first_name"
                     name="first_name"
                   />
                 </div>
-                <div class="flex flex-col">
-                  <label
-                    class="text-[1.2rem] font-[600] mb-[0.4rem] select-none"
-                    for="sur_name"
-                    >Surname *</label
-                  >
-                  <input
-                    class="p-[0.8rem] rounded-[0.4rem] border-[1px] border-solid border-[#13131C]"
-                    required
-                    type="text"
-                    id="sur_name"
-                    name="sur_name"
-                  />
+                <div class="single_input">
+                  <label for="sur_name">Surname *</label>
+                  <input required type="text" id="sur_name" name="sur_name" />
                 </div>
-                <div class="flex flex-col">
-                  <label
-                    class="text-[1.2rem] font-[600] mb-[0.4rem] select-none"
-                    for="city"
-                    >City</label
-                  >
-                  <input
-                    class="p-[0.8rem] rounded-[0.4rem] border-[1px] border-solid border-[#13131C]"
-                    type="text"
-                    id="city"
-                    name="city"
-                  />
+                <div class="single_input">
+                  <label for="city">City</label>
+                  <input type="text" id="city" name="city" />
                 </div>
-                <div class="flex flex-col">
-                  <label
-                    class="text-[1.2rem] font-[600] mb-[0.4rem] select-none"
-                    for="mobile_number"
-                    >Phone number</label
-                  >
-                  <input
-                    class="p-[0.8rem] rounded-[0.4rem] border-[1px] border-solid border-[#13131C]"
-                    type="tel"
-                    id="mobile_number"
-                    name="mobile_number"
-                  />
+                <div class="single_input">
+                  <label for="mobile_number">Phone number</label>
+                  <input type="tel" id="mobile_number" name="mobile_number" />
                 </div>
               </div>
             </div>

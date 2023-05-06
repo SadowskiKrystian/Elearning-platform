@@ -1,0 +1,27 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  border-radius: 0 0 10px 10px;
+  background-color: var(--main-0);
+}
+
+.footer_left {
+}
+
+.footer_left > p {
+  user-select: none;
+  margin: 4px 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--main-black);
+}
+
+.footer_left > h6 {
+  user-select: none;
+  margin: 0;
+  padding: 0;
+  font-size: 8px;
+  font-weight: 700;
+  color: var(--main-black);
+}

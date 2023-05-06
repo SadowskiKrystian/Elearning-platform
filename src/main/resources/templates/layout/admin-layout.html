@@ -5,53 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Elearning Platform</title>
-    <script type="text/javascript" th:src="@{/js/addFonts.js}"></script>
     <link th:href="@{/css/main.css}" rel="stylesheet" />
   </head>
   <body>
-    <nav
-      class="w-full flex flex-col bg-[#f1f1f1] rounded-t-[1rem]"
-      th:fragment="navbar"
-    >
-      <div class="py-[1.6rem]">
-        <h1 class="text-center select-none text-[1.6rem] font-bold">
-          Elearning Platform
-        </h1>
-      </div>
-      <div
-        class="text-[1.6rem] flex justify-center items-center py-[1.2rem] w-full bg-[#1aff1a]"
-      >
-        <ul class="m-0 p-0 apperance-none flex justify-center gap-[3.2rem]">
+    <nav class="navbar" th:fragment="navbar">
+      <h1 class="navbar_heading">Elearning Platform</h1>
+      <div class="navbar_wrapper">
+        <ul class="navbar_links">
           <li th:each="link : ${adminlinks}">
-            <a
-              class="select-none relative navbar_links_hover"
-              th:href="@{${link.href}}"
-              th:text="${link.name}"
-            ></a>
+            <a th:href="@{${link.href}}" th:text="${link.name}"></a>
           </li>
         </ul>
-        <a
-          th:if="${role != NULL}"
-          class="select-none relative navbar_links_hover ml-[3.2rem]"
-          href="/logout"
-          >LOGOUT</a
-        >
+        <a class="navbar_link" th:if="${role != NULL}" href="/logout">
+          LOGOUT
+        </a>
       </div>
     </nav>
 
-    <div
-      class="container mx-auto w-screen h-screen flex flex-col justify-center"
-      th:fragment="main_grid"
-    ></div>
-
-    <footer
-      th:fragment="footer"
-      class="flex justify-between p-[1.6rem] rounded-b-[1rem] bg-[#1aff1a]"
-    >
-      <div class="text-[1.2rem] font-[600] select-none text-[#13131C]">
-        <p class="my-[0.4rem]">Krystian Sadowski</p>
-        <p class="my-[0.4rem]">Aleksander Bondar</p>
-        <h6 class="font-[600] text-[1rem]">ELearning Platform 2023 &copy;</h6>
+    <footer th:fragment="footer" class="footer">
+      <div class="footer_left">
+        <p>Krystian Sadowski</p>
+        <p>Aleksander Bondar</p>
+        <h6>ELearning Platform 2023 &copy;</h6>
       </div>
     </footer>
   </body>
