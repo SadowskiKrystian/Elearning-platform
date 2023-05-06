@@ -1,6 +1,5 @@
 package com.example.elearningplatform;
 
-import com.example.elearningplatform.auth.UserRole;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

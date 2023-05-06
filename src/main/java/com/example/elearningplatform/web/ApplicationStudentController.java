@@ -2,16 +2,12 @@ package com.example.elearningplatform.web;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import jakarta.servlet.http.HttpServletRequest;
 
-import com.example.elearningplatform.dto.Login;
-
 import jakarta.servlet.http.HttpSession;
-
 
 public class ApplicationStudentController {
     @GetMapping({"/student/index"})

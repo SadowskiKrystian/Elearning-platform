@@ -31,10 +31,40 @@ const addFonts = () => {
         @apply container mx-auto w-screen h-screen flex flex-col justify-center;
       }
       .main_grid_wrapper {
-        @apply min-h-[60vh] flex bg-[#FFF];
+        @apply min-h-[60vh] max-h-[60vh] flex bg-[#FFF];
       }
+
     }
     @layer utilities {
+      .main_button {
+        width: 100%;
+      
+        margin-top: 8px;
+        background-color: var(--main-1);
+        border-radius: 4px;
+      
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 400;
+      
+        border: none;
+        outline: none;
+      
+        padding: 10px 25px;
+        text-align: center;
+        user-select: none;
+      
+        transform: translateY(0);
+        transition: transform 150ms, box-shadow 150ms;
+        box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px 0;
+      }
+      
+      .main_button:hover {
+        box-shadow: rgba(0, 0, 0, 0.15) 0 3px 9px 0;
+        transform: translateY(-2px);
+      }
+
       .navbar_links_hover::after {
         user-select: none;
         content: "";
