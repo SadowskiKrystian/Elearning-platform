@@ -1,32 +1,27 @@
 <!DOCTYPE html>
 <html
-  lang="en"
-  xmlns:th="http://www.thymeleaf.org"
-  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
 >
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Elearning Platform</title>
-    <link th:href="@{/css/main.css}" rel="stylesheet" />
-    <script th:src="@{/js/shared.js}"></script>
-  </head>
-  <body>
-    <div class="main_grid">
-      <nav th:replace="~{layout/layout :: navbar}"></nav>
-      <main class="main_grid_wrapper">
-        <div class="article">
-          <button onclick="createToast('e')">xx</button>
-          <span th:text="${user}"></span>
-          <div th:if="${user.principal != 'anonymousUser'}">
-            <form name="logoutForm" th:action="@{/logout}" method="post">
-              <input type="submit" value="Sign out" />
-            </form>
-          </div>
-        </div>
-      </main>
-      <footer th:replace="~{layout/layout :: footer}"></footer>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elearning Platform</title>
+  <link th:href="@{/css/main.css}" rel="stylesheet" />
+  <script th:src="@{/js/shared.js}"></script>
+</head>
+<body>
+<div class="main_grid">
+  <nav th:replace="${@loginService.getLogin()} ? (${@loginService.getLogin().getRole().equals('ROLE_ADMIN')} ? ~{layout/layout::admin-navbar} : ~{layout/layout.html::student-navbar}) : ~{layout/layout::navbar}"></nav>
+  <main class="main_grid_wrapper">
+    <div class="article">
+      <span th:text="${user}"></span>
+      <span th:text="${navbar}"></span>
     </div>
-  </body>
+  </main>
+  <footer th:replace="~{layout/layout :: footer}"></footer>
+</div>
+</body>
 </html>
