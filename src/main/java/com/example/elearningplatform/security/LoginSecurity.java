@@ -39,16 +39,27 @@ public class LoginSecurity {
 
 //                        .requestMatchers("/index", "/login", "/news", "/registration", "/quest/add-new-login").permitAll()
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                                .requestMatchers("/admin/**").hasAuthority(UserRole.ADMIN.getCodeWithRole())
+                                .requestMatchers("/admin").hasAuthority(UserRole.ADMIN.getCodeWithRole())
                         .anyRequest().permitAll()
                 )
                 .formLogin(
-                        form -> form
-                        .loginPage("/login")
-                                .defaultSuccessUrl("/logging")
-                                .usernameParameter("email")
-                                .passwordParameter("password")
-                                .permitAll()
+                        form -> {
+                            try {
+                                form
+                                .loginPage("/login")
+                                        .defaultSuccessUrl("/")
+                                        .usernameParameter("email")
+                                        .passwordParameter("password")
+                                        .permitAll()
+                                        .and()
+                                        .logout()
+                                        .logoutUrl("/post/logout")
+                                        .logoutSuccessUrl("/login")
+                                        .permitAll();
+                            } catch (Exception e) {
+                                throw new RuntimeException(e);
+                            }
+                        }
                 );
 
         return httpSecurity.build();

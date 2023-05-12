@@ -16,9 +16,29 @@
             <a th:href="@{${link.href}}" th:text="${link.name}"></a>
           </li>
         </ul>
-        <a class="navbar_link" th:if="${role != NULL}" href="/logout">
-          LOGOUT
-        </a>
+      </div>
+    </nav>
+    <nav class="navbar" th:fragment="admin-navbar">
+      <h1 class="navbar_heading">Elearning Platform</h1>
+      <div class="navbar_wrapper">
+        <ul class="navbar_links">
+          <li><a href="/admin/api/admin-user">Users</a></li>
+          <li><a href="/admin/api/admin-news">Newses</a></li>
+          <li><a href="/admin/api/admin-notification">Notification</a></li>
+          <li><a href="/post/logout">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav class="navbar" th:fragment="student-navbar">
+      <h1 class="navbar_heading">Elearning Platform</h1>
+      <div class="navbar_wrapper">
+        <ul class="navbar_links">
+          <li><a href=#>Grammar</a></li>
+          <li><a href=#>Vocabulary</a></li>
+          <li><a href=#>Exercises</a></li>
+          <li><a href=#>Homeworks</a></li>
+          <li><a href="/post/logout">Logout</a></li>
+        </ul>
       </div>
     </nav>
 

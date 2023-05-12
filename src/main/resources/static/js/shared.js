@@ -12,7 +12,7 @@ const removeToast = (toastID) => {
   return;
 };
 
-const createToast = (message, type, timeout = 2000) => {
+export const createToast = (message, type, timeout = 2000) => {
   const html = document.getElementsByTagName("html")[0];
   const toast = document.createElement("div");
   const toastID = generateRandomId("toast_", 8);

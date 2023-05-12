@@ -26,6 +26,7 @@ public class ApplicationController {
         String role = request.getAuthType();
         model.addAttribute("user", auth);
         model.addAttribute("enum", role);
+        model.addAttribute("navbar", loginService.getLogin());
         return "index";
     }  
 
